@@ -1,14 +1,16 @@
-/* Common styles for all pages */
+* Reset default styles */
+body {
+    padding: 0;
+    margin: 0;
+}
 
-
+/* Basic styling */
 body {
     font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f3f3f3;
-    min-height: 100vh; /* Ensure the body takes up at least the height of the viewport */
     display: flex;
-    flex-direction: column; /* Arrange children in a column layout */
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -22,14 +24,14 @@ header {
 
 .logo {
     margin: 0;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
 }
 
 #date-news {
     color: #ccc;
-    font-size: 14px;
+    font-size: 12px;
     margin-top: 5px;
     text-align: right;
 }
@@ -57,7 +59,7 @@ nav a {
     color: #0056b3;
     text-decoration: none;
     margin: 0 10px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
 }
 
@@ -72,21 +74,21 @@ nav a:hover {
 }
 
 .search-container input[type=text] {
-    padding: 10px;
+    padding: 8px; /* Adjusted padding */
     border: none;
     border-radius: 5px;
-    font-size: 14px;
-    width: 200px;
+    font-size: 12px;
+    width: 150px; /* Reduced width */
 }
 
 .search-container button {
-    padding: 10px 20px;
+    padding: 8px 15px; /* Adjusted padding */
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .search-container button:hover {
@@ -99,31 +101,23 @@ section {
 }
 
 .sidebar {
-    width: 30%; /* Adjust width for the side column */
-    box-sizing: border-box; /* Ensure box-sizing includes padding and border */
-    padding: 20px; /* Adjust padding for the side column */
-    background-color: #fff; /* Set background color to white */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for the floating effect */
-    margin-top: 20px; /* Add top margin */
-}
-
-.card {
-    background-color: #fff; /* Set background color to white */
-    border-radius: 10px; /* Add border radius for rounded corners */
-    overflow: hidden; /* Hide any overflowing content */
+    width: 25%; /* Reduced width */
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 .main-content {
-    width: calc(100% - 30%); /* Adjust width for the main content */
-    box-sizing: border-box; /* Ensure box-sizing includes padding and border */
-    padding: 20px 10px; /* Adjust padding for the main content */
+    width: 75%; /* Adjusted width */
+    padding: 10px;
     display: flex;
-    flex-wrap: wrap; /* Allow content to wrap to the next line */
+    flex-wrap: wrap;
 }
 
 .pair {
-    width: calc(50% - 20px); /* Each pair takes half of the available space minus some padding */
-    margin-bottom: 20px; /* Add some space between pairs */
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .box {
@@ -133,8 +127,8 @@ section {
 
 article {
     border-bottom: 1px solid #ddd;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 15px; /* Adjusted padding */
+    margin-bottom: 15px; /* Adjusted margin */
 }
 
 article:last-child {
@@ -148,7 +142,7 @@ footer {
     color: #fff;
     padding: 20px 0;
     text-align: center;
-    margin-top: auto; /* Push the footer to the bottom of the page */
+    margin-top: auto;
 }
 
 /* Breaking News */
@@ -170,53 +164,51 @@ footer {
 }
 
 .news-item img {
-    width: 50px; /* Adjust the width as needed */
+    width: 50px;
     border-radius: 5px;
 }
 
 .news-item h3 {
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 10px;
     margin-bottom: 5px;
 }
 
 .news-item p {
-    font-size: 14px;
+    font-size: 12px;
     color: #555;
     margin-bottom: 5px;
 }
-/* Adjust font size for article and interview titles */
+
 article h3,
 #interview h3 {
-    font-size: 24px;
+    font-size: 20px;
     margin-top: 0;
 }
 
-/* Hide the sidebar when screen size is small */
+/* Hide sidebar on small screens */
 @media (max-width: 768px) {
     .sidebar {
-        width: 0;
-        padding: 0;
-        overflow: hidden;
+        display: none;
     }
 
     .main-content {
         width: 100%;
     }
+
+    .pair {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .pair section {
+        width: 100%;
+    }
 }
 
-.pair {
-    width: 100%; /* Each pair takes full width of the container */
-    box-sizing: border-box; /* Ensure box-sizing includes padding and border */
-    padding: 0 10px; /* Adjust padding for each pair */
-    display: flex; /* Use flexbox for alignment */
-    justify-content: space-between; /* Ensure equal spacing between pairs */
+/* Position image to right bottom corner */
+#article img {
+    position: absolute;
+    right: 0; /* Changed left to right */
+    bottom: 0;
 }
-
-/* Ensure that both sections in each pair have equal width */
-.pair section {
-    width: calc(50% - 10px); /* Each section in the pair takes half of the available space minus padding */
-    box-sizing: border-box; /* Ensure box-sizing includes padding and border */
-    padding: 0 5px; /* Adjust padding for each section */
-}
-
